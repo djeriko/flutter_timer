@@ -7,7 +7,7 @@ class Actions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: _mapStateToActionButtons(
         timerBloc: BlocProvider.of<TimerBloc>(context),
       ),
@@ -47,6 +47,13 @@ class Actions extends StatelessWidget {
           onPressed: () => timerBloc.add(TimerReset()),
           child: Icon(Icons.replay),
         )
+      ];
+    }
+    if (currentState is TimerRunComplete) {
+      return [
+        FloatingActionButton(
+            onPressed: () => timerBloc.add(TimerReset()),
+            child: Icon(Icons.replay))
       ];
     }
     return [];
