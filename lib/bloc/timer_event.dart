@@ -22,6 +22,8 @@ class TimerResumed extends TimerEvent {}
 
 class TimerReset extends TimerEvent {}
 
+// Informs the TimerBloc that a tick has occurred 
+// and that it needs to update its state accordingly.
 class TimerTicked extends TimerEvent {
   final int duration;
 
